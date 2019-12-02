@@ -19,3 +19,14 @@ The project is goint to set up a small Hadoop cluster on AWS, including 1 nameno
 **4.Set up Java_Home**
 ```sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh```
 <br>export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+**5.Update core_site.xml**
+<br>```sodu vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
+```xml
+<configuration>
+  <property>
+    <name>fs.defaultFS</name>
+    <value><nnode>:9000</value>
+  </property>
+</configuration>
+  ```
