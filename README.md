@@ -193,7 +193,7 @@ sudo ./../sbin/start-all.sh
 <br>`jps`
 
 ## Common problems
-<br>when error happens, check the logs file to see what the exact problem is
+when error happens, check the logs file to see what the exact problem is
 <br>**1. java.net.BindException: Port in use: 0.0.0.0:50070**
 <br>check which thread is using the port, get the PID
 `sudo netstat -ntulp|grep 50070`
