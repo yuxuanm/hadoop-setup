@@ -185,9 +185,9 @@ cd ~hadoop-2.7.3/bin
 sudo ./hdfs namenode -format
 `
 <br>**2.start the cluster**
-``
+<br>``
 sudo ./../sbin/start-all.sh
 ``
 <br>the command will run as `start-yarn.sh` and `start-dfs.sh`
 <br>**3.check the running status**
-`jps`
+<br>`jps`
