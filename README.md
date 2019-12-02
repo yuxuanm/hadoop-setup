@@ -93,7 +93,7 @@ namenode> ssh datanode3
 ```
 ## Namenode(under ~hadoop-2.7.3/etc/hadoop/)
 **1.Setup hdfs-site/xml**
-add configuration
+<br>add configuration
 ```xml
 <configuration>
   <property>
@@ -107,6 +107,7 @@ add configuration
 </configuration>
 ```
 **2.Setup mapred-site.xml**
+<br>copy the file `mapred-site.xml.template` and name it `mapred-site.xml`
 ```shell
 scp mapred-site.xml.template mapred-site.xml
 ```
@@ -124,7 +125,7 @@ add configuration, and replace `<namenode>` with Namenode public DNS
 </configuration>
   ```
 **3.Setup yarn-site.xml**
-add configuration
+<br>add configuration
 ```xml
 <configuration>
   <!-- Site specific YARN configuration properties -->
