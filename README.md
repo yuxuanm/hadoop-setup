@@ -1,24 +1,34 @@
 # Hadoop-setup
 The project is goint to set up a small Hadoop cluster on AWS, including 1 namenode and 3 datanodes.
 
-### Namenode set-up
 **EC2 instance:** Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - t2.micro (free tier)<br>
 **Security Group:** Add inbound rules: Allow all trffic, all protocol, all port range from My IP
 
 ### All Nodes:
 **1.Update the instance:**
-<br>```ubuntu@ip-10-0-1-161:~$ sudo apt-get update && sudo apt-get -y dist-upgrade ```
+<br>
+```shell
+ubuntu@ip-10-0-1-161:~$ sudo apt-get update && sudo apt-get -y dist-upgrade 
+```
 
 **2.Install Java on all instances:**
-<br>```sudo apt-get -y install openjdk-8-jdk-headless```
+<br>
+```shell
+sudo apt-get -y install openjdk-8-jdk-headless
+```
 
 **3.Install Hadoop(2.7.3) on all instances**
-<br>```wget http://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz```
-<br>```tar xvzf hadoop-2.7.3.tar.gz```
+<br>
+```shell
+wget http://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+tar xvzf hadoop-2.7.3.tar.gz
+```
 
 **4.Set up Java_Home**
-```sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh```
-<br>export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```shell
+sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
+```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 **5.Update core_site.xml**
 <br>```sodu vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
@@ -30,3 +40,20 @@ The project is goint to set up a small Hadoop cluster on AWS, including 1 nameno
   </property>
 </configuration>
   ```
+
+### set-uppasswordless SSH login between Namenode and the three Datanodes
+**1.generate public key(namenode)**
+<br>use default /home/ubuntu/.ssh/id_rsa
+```shell
+namenode> ssh-keygen
+```
+**2.copy the id_rsa to each datanode(datanode)**
+we cannot scp the id_rsa file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
+```shell
+datanode> cd /home/ubuntu/.ssh
+datanode> vim key.txt(attach the key)
+```
+**3.attach the key to each datanode's authorized_keys(datanode)**
+```shell
+datanode> cat key.txt >> ~/.ssh/authorized_keys
+```
