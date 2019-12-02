@@ -62,24 +62,32 @@ datanode> cat key.txt >> ~/.ssh/authorized_keys
 namenode> cd /home/ubuntu/.ssh
 namenode> vim config
 ```
+replace `<nnode>,<dnode1>,<dnode2>,<dnode3>` with EC2 public DNS
 ```
-Host nnode
+Host namenode
   HostName <nnode>
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
 
-Host dnode1
+Host datanode1
   HostName <dnode1>
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
 
-Host dnode2
+Host datanode2
   HostName <dnode2>
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
 
-Host dnode3
+Host datanode3
   HostName <dnode3>
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
+```
+**5.test passwordless SSH connection**
+```shell
+namenode> ssh namenode
+namenode> ssh datanode1
+namenode> ssh datanode2
+namenode> ssh datanode3
 ```
