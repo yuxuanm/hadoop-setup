@@ -180,14 +180,14 @@ replace `<datanode1>`,`<datanode2>`,`<datanode3>` with their public DNS or their
 
 ## Starting the Hadoop cluster
 **1.format Hadoop on Namenode**
-`
+<br>`
 cd ~hadoop-2.7.3/bin
 sudo ./hdfs namenode -format
 `
-**2.start the cluster**
+<br>**2.start the cluster**
 ``
 sudo ./../sbin/start-all.sh
 ``
 <br>the command will run as `start-yarn.sh` and `start-dfs.sh`
-**3.check the running status**
+<br>**3.check the running status**
 `jps`
