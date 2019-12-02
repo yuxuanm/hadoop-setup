@@ -91,3 +91,73 @@ namenode> ssh datanode1
 namenode> ssh datanode2
 namenode> ssh datanode3
 ```
+## Namenode(under ~hadoop-2.7.3/etc/hadoop/)
+**1.Setup hdfs-site/xml**
+add configuration
+```xml
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:///usr/local/hadoop/hdfs/data</value>
+  </property>
+</configuration>
+```
+**2.Setup mapred-site.xml**
+```shell
+scp mapred-site.xml.template mapred-site.xml
+```
+add configuration, and replace `<namenode>` with Namenode public DNS
+```xml
+<configuration>
+  <property>
+    <name>mapreduce.jobtracker.address</name>
+    <value><namenode>:54311</value>
+  </property>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+</configuration>
+  ```
+**3.Setup yarn-site.xml**
+add configuration
+```xml
+<configuration>
+  <!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value><nnode></value>
+  </property>
+</configuration>
+  ```
+**4.Setup master nodes**
+```shell
+sudo vim masters
+```
+add one line, replace <namenode> with Namenode's public DNS
+<br>`<namenode>`
+**5.Setup slaves**
+```shell
+sudo vim slaves
+```
+replace `<datanode1>`,`<datanode2>`,`<datanode3>` with their public DNS
+<br>
+```shell
+<datanode1>
+<datanode2>
+<datanode3>
+```
+  
+  
