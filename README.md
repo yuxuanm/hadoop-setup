@@ -48,7 +48,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 namenode> ssh-keygen
 ```
 **2.Datanode: copy the id_rsa to each datanode**
-we cannot scp the id_rsa file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
+<br>we cannot scp the id_rsa file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
 ```shell
 datanode> cd /home/ubuntu/.ssh
 datanode> vim key.txt(attach the key)
@@ -91,7 +91,7 @@ namenode> ssh datanode1
 namenode> ssh datanode2
 namenode> ssh datanode3
 ```
-## Namenode(under ~hadoop-2.7.3/etc/hadoop/)
+## Setup Namenode(under ~hadoop-2.7.3/etc/hadoop/)
 **1.Setup hdfs-site/xml**
 <br>add configuration
 ```xml
