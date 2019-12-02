@@ -4,7 +4,7 @@ The project is goint to set up a small Hadoop cluster on AWS, including 1 nameno
 **EC2 instance:** Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - t2.micro (free tier)<br>
 **Security Group:** Add inbound rules: Allow all trffic, all protocol, all port range from My IP
 
-### All Nodes:
+## All Nodes:
 **1.Update the instance:**
 <br>
 ```shell
@@ -41,7 +41,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 </configuration>
   ```
 
-### Set-up passwordless SSH login between Namenode and the three Datanodes
+## Set-up passwordless SSH login between Namenode and the three Datanodes
 **1.Namenode: generate public key**
 <br>use default /home/ubuntu/.ssh/id_rsa
 ```shell
