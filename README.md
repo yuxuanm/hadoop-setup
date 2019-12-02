@@ -149,7 +149,8 @@ sudo vim masters
 ```
 add one line, replace <namenode> with Namenode's public DNS
 <br>`<namenode>`
-**5.Setup slaves**
+
+<br>**5.Setup slaves**
 ```shell
 sudo vim slaves
 ```
@@ -160,5 +161,21 @@ replace `<datanode1>`,`<datanode2>`,`<datanode3>` with their public DNS
 <datanode2>
 <datanode3>
 ```
-  
-  
+
+## Setup Datanode(under ~hadoop-2.7.3/etc/hadoop/)
+**1.Setup hdfs-site.xml**
+<br> add configuration
+```xml
+<configuration>
+  <property>
+  <name>dfs.replication</name>
+  <value>3</value>
+</property>
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>file:///usr/local/hadoop/hdfs/data</value>
+</property>
+</configuration>
+```
+
+## Starting the Hadoop cluster
