@@ -84,7 +84,7 @@ Host datanode3
   User ubuntu
   IdentityFile ~/.ssh/id_rsa
 ```
-**5.test passwordless SSH connection**
+**5.Namenode: test passwordless SSH connection**
 ```shell
 namenode> ssh namenode
 namenode> ssh datanode1
