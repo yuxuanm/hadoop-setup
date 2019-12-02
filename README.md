@@ -154,7 +154,7 @@ add one line, replace <namenode> with Namenode's public DNS
 ```shell
 sudo vim slaves
 ```
-replace `<datanode1>`,`<datanode2>`,`<datanode3>` with their public DNS
+replace `<datanode1>`,`<datanode2>`,`<datanode3>` with their public DNS or their internal IP
 <br>
 ```shell
 <datanode1>
