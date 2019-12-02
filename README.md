@@ -191,3 +191,11 @@ sudo ./../sbin/start-all.sh
 <br>the command will run as `start-yarn.sh` and `start-dfs.sh`
 <br>**3.check the running status**
 <br>`jps`
+
+## Common problems
+when error happens, check the logs file to see what the exact problem is
+**1. java.net.BindException: Port in use: 0.0.0.0:50070**
+<br>solution: check which thread is using the port, get the PID
+`sudo netstat -ntulp|grep 50070`
+<br>kill the PID
+`kill -p PID`
