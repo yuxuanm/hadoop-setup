@@ -41,19 +41,45 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 </configuration>
   ```
 
-### set-uppasswordless SSH login between Namenode and the three Datanodes
-**1.generate public key(namenode)**
+### Set-up passwordless SSH login between Namenode and the three Datanodes
+**1.Namenode: generate public key**
 <br>use default /home/ubuntu/.ssh/id_rsa
 ```shell
 namenode> ssh-keygen
 ```
-**2.copy the id_rsa to each datanode(datanode)**
+**2.Datanode: copy the id_rsa to each datanode**
 we cannot scp the id_rsa file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
 ```shell
 datanode> cd /home/ubuntu/.ssh
 datanode> vim key.txt(attach the key)
 ```
-**3.attach the key to each datanode's authorized_keys(datanode)**
+**3.Datanode: attach the key to each datanode's authorized_keys**
 ```shell
 datanode> cat key.txt >> ~/.ssh/authorized_keys
+```
+**4.Namenode: Setup SSH Config**
+```shell
+namenode> cd /home/ubuntu/.ssh
+namenode> vim config
+```
+```
+Host nnode
+  HostName <nnode>
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa
+
+Host dnode1
+  HostName <dnode1>
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa
+
+Host dnode2
+  HostName <dnode2>
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa
+
+Host dnode3
+  HostName <dnode3>
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa
 ```
