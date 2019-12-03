@@ -66,7 +66,7 @@ datanode> cat key.txt >> ~/.ssh/authorized_keys
 namenode> cd /home/ubuntu/.ssh
 namenode> vim config
 ```
-replace `<nnode>,<dnode1>,<dnode2>,<dnode3>` with EC2 public DNS
+replace `<nnode>,<dnode1>,<dnode2>,<dnode3>` with EC2 internal IP
 ```
 Host namenode
   HostName <nnode>
