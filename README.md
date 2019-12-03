@@ -40,7 +40,11 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
   </property>
 </configuration>
   ```
-
+**6.Create data dir and change the owner to ubuntu**
+```shell
+sudo mkdir -p /usr/local/hadoop/hdfs/data
+sudo chown -R ubuntu:ubuntu /usr/local/hadoop/hdfs/data
+```
 ## Set-up passwordless SSH login between Namenode and the three Datanodes
 **1.Namenode: generate public key**
 <br>use default /home/ubuntu/.ssh/id_rsa
