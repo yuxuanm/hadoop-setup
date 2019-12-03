@@ -191,6 +191,7 @@ sudo ./../sbin/start-all.sh
 <br>the command will run as `start-yarn.sh` and `start-dfs.sh`
 <br>**3.check the running status**
 <br>`jps`
+<br> or open `namenode's ip:50070` in a browser
 
 ## Common problems
 when error happens, check the logs file to see what the exact problem is
