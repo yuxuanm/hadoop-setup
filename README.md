@@ -51,8 +51,8 @@ sudo chown -R ubuntu:ubuntu /usr/local/hadoop/hdfs/data
 ```shell
 namenode> ssh-keygen
 ```
-**2.Datanode: copy the id_rsa to each datanode**
-<br>we cannot scp the id_rsa file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
+**2.Datanode: copy the id_rsa.pub to each datanode**
+<br>we cannot scp the id_rsa.pub file directly to each datanode, what we can do is to create a key.txt in each datanode under /home/ubuntu/.ssh, and then mannually attach the key to it.
 ```shell
 datanode> cd /home/ubuntu/.ssh
 datanode> vim key.txt(attach the key)
