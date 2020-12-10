@@ -89,7 +89,7 @@ vim mapred-site.xml
 ```
 <br>add configuration
 ```xml
-configuration>
+<configuration>
   <!-- run mapreduce on yarn -->
   <property>
     <name>mapreduce.framework.name</name>
