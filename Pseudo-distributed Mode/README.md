@@ -28,16 +28,18 @@ sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 **5.Modify core_site.xml**
-<br>```sodu vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
+<br>```vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
+<br>add configuration
 ```xml
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value><nnode>:9000</value>
+    <value>node1:9000</value>
   </property>
 </configuration>
   ```
-**6.Modify hdfs-site/xml**
+**6.Modify hdfs-site.xml**
+<br>```vim ~/hadoop-2.7.3/etc/hadoop/hdfs-site.xml```
 <br>add configuration
 ```xml
 <configuration>
@@ -49,6 +51,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
 **7. Modify yarn-site.xml**
+<br>```vim ~/hadoop-2.7.3/etc/hadoop/yarn-site.xml```
 <br>add configuration
 ```xml
 <configuration>
@@ -66,6 +69,9 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 **8. Setup slaves**
 ```shell
 vim ~/hadoop-2.7.3/etc/hadoop/slaves
+```
+```xml
+node1
 ```
 
 
