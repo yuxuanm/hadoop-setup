@@ -1,14 +1,11 @@
-# Hadoop cluster setup
-The project is goint to set up a small Hadoop cluster on AWS, including 1 namenode and 3 datanodes.
+# Hadoop Pseudo-distributed Mode
+The project is goint to set up a small Hadoop node on local machine using VMware Workstation & Ubuntu 20.04.
 
-**EC2 instance:** Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - t2.micro (free tier)<br>
-**Security Group:** Add inbound rules: Allow all trffic, all protocol, all port range from My IP
-
-## All Nodes:
+## Steps:
 **1.Update the instance:**
 <br>
 ```shell
-ubuntu@ip-10-0-1-161:~$ sudo apt-get update && sudo apt-get -y dist-upgrade 
+sudo apt-get update && sudo apt-get -y dist-upgrade 
 ```
 
 **2.Install Java on all instances:**
@@ -24,13 +21,13 @@ wget http://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.
 tar xvzf hadoop-2.7.3.tar.gz
 ```
 
-**4.Set up Java_Home**
+**4.Modify 'hadoop-env.sh', add Java_Home**
 ```shell
 sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 ```
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-**5.Update core_site.xml**
+**5.Modify core_site.xml**
 <br>```sodu vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
 ```xml
 <configuration>
@@ -40,6 +37,21 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
   </property>
 </configuration>
   ```
+**6.Modify hdfs-site/xml**
+<br>add configuration
+```xml
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+</configuration>
+```
+
+
+
+
+
 **6.Create data dir and change the owner to ubuntu**
 ```shell
 sudo mkdir -p /usr/local/hadoop/hdfs/data
