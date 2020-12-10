@@ -22,7 +22,9 @@ tar xvf hadoop-2.7.3.tar.gz
 ```
 
 **4.Modify 'hadoop-env.sh', add Java_Home**
-<br>`sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh`
+```shell
+sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
+```
 ```shell
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
@@ -62,8 +64,10 @@ add configuration
 ```
 
 **8. Modify yarn-site.xml**
-<br>```vim ~/hadoop-2.7.3/etc/hadoop/yarn-site.xml```
-<br>add configuration
+```shell
+vim ~/hadoop-2.7.3/etc/hadoop/yarn-site.xml
+```
+add configuration
 ```xml
 <configuration>
   <property>
@@ -78,8 +82,10 @@ add configuration
 ```
 
 **9.Modify core_site.xml**
-<br>```vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
-<br>add configuration
+```shell
+vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml
+```
+add configuration
 ```xml
 <configuration>
   <property>
@@ -89,12 +95,12 @@ add configuration
 </configuration>
   ```
   
-**10.Copy mapred-site.xml.template to mapred-site.xml and modify mapred-site.xml**
+**10. Copy mapred-site.xml.template to mapred-site.xml and modify mapred-site.xml**
 ```shell
 cp mapred-site.xml.template mapred-site.xml
 vim mapred-site.xml
 ```
-<br>add configuration
+add configuration
 ```xml
 <configuration>
   <!-- run mapreduce on yarn -->
