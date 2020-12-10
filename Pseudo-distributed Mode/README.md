@@ -70,6 +70,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```shell
 vim ~/hadoop-2.7.3/etc/hadoop/slaves
 ```
+create a file with only 1 line
 ```xml
 node1
 ```
