@@ -27,6 +27,20 @@ sudo vim ~/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 ```
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+**5. Add Hadoop_Home to environmental variable**
+```shell
+sudo vim /etc/profile
+```
+<br>add
+```shell
+export HADOOP_HOME=~/hadoop-2.7.3  # put Hadoop install path here
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+```
+<br> then
+```shell
+sudo source /etc/profile
+```
+
 **5.Modify core_site.xml**
 <br>```vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
 <br>add configuration
@@ -38,7 +52,17 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
   </property>
 </configuration>
   ```
-**6.Modify hdfs-site.xml**
+  
+**6. Create a nickname for the instance**
+```shell
+sudo vim /etc/hosts
+```
+<br> add one line at the top, from here, the ip addresses in the following configurations are replaced with <font color="#dd0000">node1</font>
+```she
+192.168.18.128  node1  # replace the ip address here
+```
+
+**7.Modify hdfs-site.xml**
 <br>```vim ~/hadoop-2.7.3/etc/hadoop/hdfs-site.xml```
 <br>add configuration
 ```xml
@@ -50,7 +74,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 </configuration>
 ```
 
-**7. Modify yarn-site.xml**
+**8. Modify yarn-site.xml**
 <br>```vim ~/hadoop-2.7.3/etc/hadoop/yarn-site.xml```
 <br>add configuration
 ```xml
@@ -66,7 +90,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 </configuration>
 ```
 
-**8. Setup slaves**
+**9. Setup slaves**
 ```shell
 vim ~/hadoop-2.7.3/etc/hadoop/slaves
 ```
