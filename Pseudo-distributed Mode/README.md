@@ -27,24 +27,31 @@ tar xvf hadoop-2.7.3.tar.gz
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 **5. Add Hadoop_Home to environmental variable**
-<br>`sudo vim /etc/profile`
-<br>add
+```shell
+sudo vim /etc/profile`
+```
+add
 ```shell
 export HADOOP_HOME=~/hadoop-2.7.3  # put Hadoop install path here
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```
-<br>then
-`sudo source /etc/profile`<br>
+then
+```shell
+sudo source /etc/profile
+```
 **6. Create a nickname for the instance**
-`sudo vim /etc/hosts`
-<br> add one line at the top, from here, the ip addresses in the following configurations are replaced with `node`
-```she
+```shell
+sudo vim /etc/hosts
+```
+add one line at the top, from here, the ip addresses in the following configurations are replaced with `node`
+```shell
 192.168.18.128  node1  # replace the ip address here
 ```
-
 **7.Modify hdfs-site.xml**
-`vim ~/hadoop-2.7.3/etc/hadoop/hdfs-site.xml`
-<br>add configuration
+```shell
+vim ~/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
+```
+add configuration
 ```xml
 <configuration>
   <property>
