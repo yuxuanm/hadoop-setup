@@ -40,19 +40,6 @@ export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```shell
 sudo source /etc/profile
 ```
-
-**5.Modify core_site.xml**
-<br>```vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
-<br>add configuration
-```xml
-<configuration>
-  <property>
-    <name>fs.defaultFS</name>
-    <value>node1:9000</value>
-  </property>
-</configuration>
-  ```
-  
 **6. Create a nickname for the instance**
 ```shell
 sudo vim /etc/hosts
@@ -90,7 +77,35 @@ sudo vim /etc/hosts
 </configuration>
 ```
 
-**9. Setup slaves**
+**9.Modify core_site.xml**
+<br>```vim ~/hadoop-2.7.3/etc/hadoop/core_site.xml```
+<br>add configuration
+```xml
+<configuration>
+  <property>
+    <name>fs.defaultFS</name>
+    <value>node1:9000</value>
+  </property>
+</configuration>
+  ```
+  
+**10.Copy mapred-site.xml.template to mapred-site.xml and modify mapred-site.xml**
+```shell
+cp mapred-site.xml.template mapred-site.xml
+vim mapred-site.xml
+```
+<br>add configuration
+```xml
+configuration>
+  <!-- run mapreduce on yarn -->
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+</configuration>
+```
+
+**11. Setup slaves**
 ```shell
 vim ~/hadoop-2.7.3/etc/hadoop/slaves
 ```
