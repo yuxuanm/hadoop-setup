@@ -148,3 +148,11 @@ start-all.sh
 <br>`jps`
 <br> or open `namenode's ip:50070` in a browser
 
+If correctly, there should be 5 threads
+```shell
+NameNode
+ResourceManager
+SecondaryNameNode
+DataNode
+NodeManager
+```
